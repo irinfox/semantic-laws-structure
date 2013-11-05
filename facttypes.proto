@@ -1,0 +1,23 @@
+import "base.proto";           // описание protobuf-типов
+import "facttypes_base.proto"; // описание protobuf-типа NFactType.TFact
+
+message Definition : NFactType.TFact 
+{
+  required string PlainText = 1; 
+  required string Term = 2; // ДЕЛИМЫЙ ЗЕМЕЛЬНЫЙ УЧАСТОК
+  optional string Limitation = 3;
+  optional string Comment = 4;
+  optional string Pred = 5; // ЯВЛЯЕТСЯ
+  optional string KeyWord = 6; // ЗЕМЕЛЬНЫЙ УЧАСТОК
+  optional bool EnumExpected = 7; // Мы ждём перечисления дальше?
+}
+
+message Content : NFactType.TFact 
+{
+  required string PlainText = 1;
+  optional string Marker = 2; // 1. 2)
+  optional string Limitation = 3;  // "как природный объект"
+  optional string KeyWord = 4; // землевладельцы - ЛИЦА, ...
+  optional string Comment = 5; // ОБЛАДАЮЩИЙ ГРАЖДАНСКОЙ ПРАВОСПОСОБНОСТЬЮ
+}
+
