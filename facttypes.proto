@@ -8,7 +8,7 @@ message Definition : NFactType.TFact
   optional string Limitation = 3;
   optional string Comment = 4;
   optional string Pred = 5; // ЯВЛЯЕТСЯ
-  optional string KeyWord = 6; // ЗЕМЕЛЬНЫЙ УЧАСТОК
+  required string KeyWord = 6; // ЗЕМЕЛЬНЫЙ УЧАСТОК
   optional bool EnumExpected = 7; // Мы ждём перечисления дальше?
 }
 
@@ -17,7 +17,9 @@ message Content : NFactType.TFact
   required string PlainText = 1;
   optional string Marker = 2; // 1. 2)
   optional string Limitation = 3;  // "как природный объект"
-  optional string KeyWord = 4; // землевладельцы - ЛИЦА, ...
-  optional string Comment = 5; // ОБЛАДАЮЩИЙ ГРАЖДАНСКОЙ ПРАВОСПОСОБНОСТЬЮ
+  optional string KeyNP = 4; //юр. лицо..
+  optional string KeyWord = 5; // землевладельцы - ЛИЦА, ...
+  optional bool Depricated = 6;
+  optional string Comment = 7; // ОБЛАДАЮЩИЙ ГРАЖДАНСКОЙ ПРАВОСПОСОБНОСТЬЮ
 }
 
