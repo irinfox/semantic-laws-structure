@@ -42,7 +42,7 @@ Term -> NP_Def;
 Term -> NP_Def PPS interp (Definition.Comment); 
 Term -> NP_Def LimitDef interp (Definition.Comment); 
 
-Term2 -> Adj interp (Definition.Term) Pred interp (Definition.Pred) ANP interp (+Definition.Term; Definition.KeyWord; Content.KeyWord); //делимым является земельный участок
+Term2 -> Adj interp (Definition.Term) Pred interp (Definition.Pred) ANP_Def interp (+Definition.Term; Content.KeyWord); //делимым является земельный участок
 
 Pred -> 'являться' | 'пониматься';
 Pred_no_interp -> Hyphen;
