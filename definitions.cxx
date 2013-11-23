@@ -42,7 +42,8 @@ Term -> NP_Def;
 Term -> NP_Def PPS interp (Definition.Comment); 
 Term -> NP_Def LimitDef interp (Definition.Comment); 
 
-Term2 -> Adj interp (Definition.Term) Pred interp (Definition.Pred) ANP_Def interp (+Definition.Term; Content.KeyWord); //делимым является земельный участок
+//некрасивое правило, надо будет переписать
+Term2 -> Adj<gram="ins"> interp (Definition.Term) Pred interp (Definition.Pred) Adj<gnc-agr[1]> interp (+Definition.Term; Content.KeyNP) Noun<gnc-agr[1]> interp (+Definition.Term; Definition.KeyWord; +Content.KeyNP; Content.KeyWord); //делимым является земельный участок
 
 Pred -> 'являться' | 'пониматься';
 Pred_no_interp -> Hyphen;
@@ -91,7 +92,20 @@ Enum -> EnumIter+ EnumItem interp (Content.PlainText; Content.KeyNP); // Break;
 
 //------Содержание без перечисления---------------
 
-LimBrac -> LBracket AnyWord+ RBracket;
+//Inside Definitions on-------------------------
+
+Incl -> 'в' 'то'<gram="abl"> 'число'<gram="abl">;
+Further -> 'далее' Hyphen;  
+InBrac -> Incl NP; //не надо интерпретировать
+
+InBrac -> (Further) NP_Def interp (Definition.Term); //ПЕРЕД скобками нужно интерпретировать в Content
+InBrac -> Enum; //ПЕРЕД скобками нужно интерпретировать в Def
+InBrac -> EnumItem interp (Content.PlainText; Content.KeyNP);
+
+LimBrac -> LBracket InBrac RBracket;
+
+//Ins.Def. off----------------------------------
+
 Comm -> ('не') Word<gram="partcp"> AnyWord+;
 Comm -> Prep 'который' AnyWord+;
 Comm -> Noun 'который'<gram="gen"> AnyWord+;
@@ -100,7 +114,7 @@ Comm2 -> 'который' AnyWord+ (Cont_stop);
 NP_Cont -> Adj Comma Word<gram="ADV"> Adj Noun interp (Content.KeyWord);
 Cont_stop -> Break | Comma;
 Content -> NP_Cont interp (Content.KeyNP) Comma Comm interp (Content.Comment::not_norm) Cont_stop;
-Content -> NP_Cont interp (Definition.Term; Definition.KeyWord; Definition.PlainText;Content.KeyNP) LimBrac interp (Content.Limitation; Content.PlainText) Comma Comm interp (Content.Comment::not_norm) Cont_stop;
+Content -> NP_Cont interp (Content.KeyNP) LimBrac interp (Content.Limitation; Content.PlainText) Comma Comm interp (Content.Comment::not_norm) Cont_stop;
 //Content -> Noun interp (Content.KeyWord) AnyWord+ interp (Content.Comment::not_norm) Cont_stop;
 
 //-----------Корневые правила------------------------------------------
