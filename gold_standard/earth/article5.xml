@@ -14,15 +14,15 @@
 			<num>1</num>.
 			<def type="is_a">
            <term lemma="участник земельных отношений"><kw lemma="участник">Участниками</kw> земельных отношений</term> являются
-				<cont>
-					<enum>
-                 <item><kw lemma="гражданин">граждане</kw></item>, 
-                 <item>юридические <kw lemma="лицо">лица</kw></item>, 
-                 <item>Российская <kw lemma="федерация">Федерация</kw></item>, 
-                 <item><kw lemma="субъект">субъекты</kw> Российской Федерации</item>, 
-                 <item>муниципальные <kw lemma="образование">образования</kw></item>.
-					</enum>
-				</cont>
+           <cont>
+                 <enum>
+                   <item><kw lemma="гражданин">граждане</kw></item>, 
+                   <item>юридические <kw lemma="лицо">лица</kw></item>, 
+                   <item>Российская <kw lemma="федерация">Федерация</kw></item>, 
+                   <item><kw lemma="субъект">субъекты</kw> Российской Федерации</item>, 
+                   <item>муниципальные <kw lemma="образование">образования</kw></item>.
+                 </enum>
+              </cont>
 			</def>
 		</para>
 		<para>
