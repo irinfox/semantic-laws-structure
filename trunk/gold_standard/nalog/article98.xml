@@ -1,0 +1,56 @@
+<TAXES>
+<body>
+    <head>
+        <article>Статья
+            <num>98</num>.
+            <about>Участие понятых</about>
+        </article>
+    </head>
+    <entry>
+        <para>
+            <num>1</num>.
+            <regulation>
+                При проведении <contence>действий по осуществлению налогового контроля</contence>
+                <clause>в случаях, предусмотренных <ref>настоящим Кодексом</ref>,</clause>
+                вызываются
+                <sub>понятые</sub>.
+            </regulation>
+        </para>
+        <para>
+            <num>2</num>.
+            <contence>Понятые вызываются в количестве не менее двух человек</contence>.
+        </para>
+        <para>
+            <num>3</num>.
+            В качестве понятых могут быть вызваны любые не заинтересованные в исходе дела физические лица.
+        </para>
+        <para>
+            <num>4</num>.
+            <regulation>
+                <character type="prohibit">Не допускается</character>
+                <contence>участие в качестве понятых</contence>
+                <sub>должностных лиц налоговых органов</sub>.
+            </regulation>
+        </para>
+        <para>
+            <num>5</num>.
+            <regulation>
+                <sub type="ant">Понятые</sub>
+                <character type="must">обязаны </character>
+                <contence>удостоверить в протоколе факт, содержание и результаты действий, производившихся в их присутствии</contence>.
+            </regulation>
+            <regulation>
+                <sub type="ana">Они</sub>
+                <character type="may">вправе</character>
+                <contence>делать по поводу произведенных действий замечания, которые подлежат внесению в протокол</contence>.
+            </regulation>
+            <regulation>
+                <clause>В случае необходимости</clause>
+                <sub>понятые</sub>
+                <character type="may">могут быть</character>
+                <contence>опрошены по указанным обстоятельствам</contence>.
+            </regulation>
+        </para>
+    </entry>
+</body>
+</TAXES>
