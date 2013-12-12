@@ -1,7 +1,6 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<EARTH xmlns:xi="http://www.w3.org/2001/XInclude"> // схема?
-<xi:include href="header_earth.xml"/> //наверное, как и в ТЕИ нужен заголовок с описанием всего кодекса?
+<EARTH>
 <body>
 	<head>
 		<article>Статья 
