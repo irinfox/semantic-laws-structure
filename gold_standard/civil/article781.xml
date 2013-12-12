@@ -1,0 +1,39 @@
+<CIVIL>
+<body>
+    <head>
+        <article>
+            Статья
+            <num>781</num>.
+            <about>Оплата услуг</about>
+        </article>
+    </head>
+    <entry>
+        <para>
+            <num>1</num>.
+            <regulation>
+                <sub>Заказчик</sub>
+                <character type="must">обязан</character>
+                <contence>оплатить оказанные ему услуги</contence>
+                <clause>в сроки и в порядке, которые указаны в договоре возмездного оказания услуг</clause>.
+            </regulation>
+        </para>
+        <para>
+            <num>2</num>.
+            <regulation>
+                <clause>В случае невозможности исполнения, возникшей по вине заказчика</clause>,
+                <character type="must" />
+                <contence><ob>услуги</ob> подлежат оплате в полном объеме</contence>,
+                <clause>если иное не предусмотрено <ref>законом</ref> или договором возмездного оказания услуг</clause>.
+            </regulation>
+        </para>
+        <para>
+            <num>3</num>.
+            В случае, когда <clause>невозможность исполнения возникла по обстоятельствам, за которые ни одна из сторон не отвечает</clause>,
+            <sub>заказчик</sub>
+            <character type="must" />
+            <contence>возмещает исполнителю фактически понесенные им <ob>расходы</ob></contence>,
+            <clause>если иное не предусмотрено законом или договором возмездного оказания услуг</clause>.
+        </para>
+    </entry>
+</body>
+</CIVIL>
