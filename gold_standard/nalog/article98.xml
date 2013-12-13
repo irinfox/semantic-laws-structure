@@ -10,7 +10,7 @@
         <para>
             <num>1</num>.
             <regulation>
-                При проведении <contence>действий по осуществлению налогового контроля</contence>
+                При проведении <content>действий по осуществлению налогового контроля</content>
                 <clause>в случаях, предусмотренных <ref>настоящим Кодексом</ref>,</clause>
                 вызываются
                 <sub>понятые</sub>.
@@ -18,7 +18,7 @@
         </para>
         <para>
             <num>2</num>.
-            <contence>Понятые вызываются в количестве не менее двух человек</contence>.
+            <content>Понятые вызываются в количестве не менее двух человек</content>.
         </para>
         <para>
             <num>3</num>.
@@ -28,7 +28,7 @@
             <num>4</num>.
             <regulation>
                 <character type="prohibit">Не допускается</character>
-                <contence>участие в качестве понятых</contence>
+                <content>участие в качестве понятых</content>
                 <sub>должностных лиц налоговых органов</sub>.
             </regulation>
         </para>
@@ -37,18 +37,18 @@
             <regulation>
                 <sub type="ant">Понятые</sub>
                 <character type="must">обязаны </character>
-                <contence>удостоверить в протоколе факт, содержание и результаты действий, производившихся в их присутствии</contence>.
+                <content>удостоверить в протоколе факт, содержание и результаты действий, производившихся в их присутствии</content>.
             </regulation>
             <regulation>
                 <sub type="ana">Они</sub>
                 <character type="may">вправе</character>
-                <contence>делать по поводу произведенных действий замечания, которые подлежат внесению в протокол</contence>.
+                <content>делать по поводу произведенных действий замечания, которые подлежат внесению в протокол</content>.
             </regulation>
             <regulation>
                 <clause>В случае необходимости</clause>
                 <sub>понятые</sub>
                 <character type="may">могут быть</character>
-                <contence>опрошены по указанным обстоятельствам</contence>.
+                <content>опрошены по указанным обстоятельствам</content>.
             </regulation>
         </para>
     </entry>
