@@ -5,30 +5,25 @@ Break -> EOSent | AnyWord<wff=";">;
 
 LimitDef -> LBracket AnyWord+ RBracket; //река-море (статья 2440?) 
 
-Limits -> 'как' NP; //Noun<gram="acc"> ANP<gram="gen">; 
+Limits -> 'как' NP;  
 Limits -> 'как' ANP<gram="acc"> SimConjAnd ANP<gram="acc">; 
 
 LimPart -> Word<gram="partcp"> InClause+;
 LimitPart -> Comma LimPart interp (Definition.Comment::not_norm) Comma; 
 
 //-------------Некоторые именные группы--------------------
-//можно попробовать создать нетерминал прилагательное НЕ "другой"
-//не помню, как указывается отрицание "леммы или нетерминала"
-//Adj -> 
 AinBr -> LBracket Adj RBracket;
 
 NP -> Noun;
 NP -> Noun Noun<gram="gen">+;
 NP -> NP ANP;
 NP -> ANP;
-//NP -> Noun PP;
 ANP -> Adj<gnc-agr[1]>+ (AinBr) Noun<gnc-agr[1], rt>;
 ANP -> Adj<gnc-agr[1]> 'и' ANP<gnc-agr[1], rt>;
 ANP -> Adj<gnc-agr[1]> ',' ANP<gnc-agr[1], rt>;
 
 
 PPS -> PP+;
-//PP -> Prep Adj* Noun+;
 PP -> Prep NP;
 PP -> Prep Word<gram="SPRO">;
 
@@ -36,7 +31,6 @@ PP -> Prep Word<gram="SPRO">;
 //---------------------------------------------------------------------
 
 NP_Def -> Noun<gram="nom"> interp (Definition.KeyWord); 
-//NP_Def -> NP_Def (Adj<gnc-agr[1]>) Noun<gnc-agr[1]>+;
 NP_Def -> NP_Def NP+;
 ANP_Def -> Adj<gnc-agr[1]>+ NP_Def<gnc-agr[1], rt>; 
 ANPDef -> Adj<gnc-agr[1]>+ LimitDef interp (Definition.Limitation) NP_Def<gnc-agr[1]>;
@@ -48,7 +42,7 @@ Term -> NP_Def;
 Term -> NP_Def PPS interp (Definition.Comment); 
 Term -> NP_Def LimitDef interp (Definition.Comment); 
 
-//некрасивое правило, надо будет переписать
+//отредактировать правило
 Term2 -> Adj<gram="ins"> interp (Definition.Term) Pred interp (Definition.Pred) Adj<gnc-agr[1]> interp (+Definition.Term; Content.KeyNP) Noun<gnc-agr[1]> interp (+Definition.Term; Definition.KeyWord; +Content.KeyNP; Content.KeyWord); //делимым является земельный участок
 
 NotOne -> 'один'<rt> 'из';
@@ -83,13 +77,11 @@ NumDelim -> RBracket | Punct;
 Number -> AnyWord<wff="\\d+">;
 
 SimpleBtw -> SimConjAnd | Or | ComplexOr;
-//NP_Cont -> NP_Cont SimpleBtw NP_Cont;
-//Cont_NP -> NP_Cont;
 
 LoseStrength -> 'утратить' 'сила'<gram="acc">;
 EnumItem1 -> Number interp (Content.Marker) NumDelim Content;
 EnumItem1 -> Number interp (Content.Marker) NumDelim NP_Cont interp (Content.KeyNP) (Limits interp (Content.Limitation));
-EnumItem1 -> Number interp (Content.Marker) NumDelim LoseStrength interp (Content.Depricated = 'true') AnyWord* interp (Content.Comment); // Break;
+EnumItem1 -> Number interp (Content.Marker) NumDelim LoseStrength interp (Content.Depricated = 'true') AnyWord* interp (Content.Comment);
 
 //-------Второй тип перечислений (правая часть на той же строке)-------
 Or -> (LBracket) 'или' (RBracket);
@@ -97,10 +89,10 @@ ComplexOr -> SimConjAnd Or;
 Btw -> Comma | SimConjAnd | Or | ComplexOr;
 EnumItem -> NP_Cont (Comm);
 
-EnumItem -> 'другой' NP_Cont (Comm); //!!!нужно как-то "сказать", что если это прил. "другой", то мы интерпретируем не как им. группу, а как enum item
+EnumItem -> 'другой' NP_Cont (Comm); 
 
 EnumIter -> EnumItem interp (Content.PlainText; Content.KeyNP) Btw;
-Enum -> EnumIter+ EnumItem interp (Content.PlainText; Content.KeyNP); // Break; 
+Enum -> EnumIter+ EnumItem interp (Content.PlainText; Content.KeyNP); 
 
 //------Содержание без перечисления---------------
 
@@ -138,17 +130,16 @@ Comm -> Prep 'который' InClause;
 Comm_N -> Noun 'который'<gram="gen"> InClause;
 Comm -> Comm LimBrac (InClause);
 
-//InClause2 -> Word<gram="V">+ Comm+ InClause2;
-//InClause2 -> InClause;
-Comm2 -> 'который' InClause Comm*; //Cont_stop; //в этом случае нужно включать и глаголы?
+Comm2 -> 'который' InClause Comm*; //в этом случае нужно включать и глаголы?
 
 NP_Cont -> Adj Comma Word<gram="ADV"> Adj Noun interp (Content.KeyWord);
 Cont_stop -> Break | Comma;
-Content -> NP_Cont<rt, gnc-agr[1], gram="n"> interp (Content.KeyNP::norm="sg") Comma Comm<gnc-agr[1]> interp (Content.Comment::norm="n,sg");// Cont_stop;
-Content -> NP_Cont<rt, gnc-agr[1], gram="f"> interp (Content.KeyNP::norm="sg") Comma Comm<gnc-agr[1]> interp (Content.Comment::norm="f,sg");// Cont_stop;
-Content -> NP_Cont<rt, gnc-agr[1]> interp (Content.KeyNP::norm="sg") Comma Comm<gnc-agr[1]> interp (Content.Comment);// Cont_stop;
-Content -> NP_Cont<rt> interp (Content.KeyNP::norm="sg") (LimBrac interp (Content.Limitation)) Comma Comm_N interp (Content.Comment::not_norm); // Cont_stop;
-//без запятой
+Content -> NP_Cont<rt, gnc-agr[1], gram="n"> interp (Content.KeyNP::norm="sg") Comma Comm<gnc-agr[1]> interp (Content.Comment::norm="n,sg");
+Content -> NP_Cont<rt, gnc-agr[1], gram="f"> interp (Content.KeyNP::norm="sg") Comma Comm<gnc-agr[1]> interp (Content.Comment::norm="f,sg");
+Content -> NP_Cont<rt, gnc-agr[1]> interp (Content.KeyNP::norm="sg") Comma Comm<gnc-agr[1]> interp (Content.Comment);
+Content -> NP_Cont<rt> interp (Content.KeyNP::norm="sg") (LimBrac interp (Content.Limitation)) Comma Comm_N interp (Content.Comment::not_norm);
+
+//без запятой, не работает
 //Content -> Noun interp (Content.KeyWord::norm="sg") InClause interp (Content.Comment) Cont_stop;
 
 //-----------Корневые правила------------------------------------------
@@ -157,13 +148,13 @@ Content -> NP_Cont<rt> interp (Content.KeyNP::norm="sg") (LimBrac interp (Conten
 //---------------для первого типа-----------------
 FullTerm1 -> FullTerm Colon interp (Definition.EnumExpected = 'true');
 S -> FullTerm1 interp (Definition.PlainText);
-S -> EnumItem1 interp (Content.PlainText) (Break); //(AnyWord<wff=";">); 
+S -> EnumItem1 interp (Content.PlainText) (Break); 
 
 //---------------для второго типа-----------------
 
-S -> FullTerm interp (Definition.PlainText) Enum; //Break;
+S -> FullTerm interp (Definition.PlainText) Enum;
 
 //---------------для типа без перечисления--------
-S -> FullTerm interp (Definition.PlainText) Content interp (Content.PlainText); //Break;
+S -> FullTerm interp (Definition.PlainText) Content interp (Content.PlainText);
 S -> Term2 interp (Definition.PlainText) Comma Comm2+ interp (Content.PlainText; Content.Comment) Cont_stop;
 
