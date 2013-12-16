@@ -6,7 +6,9 @@ TTextMinerConfig {
   PrettyOutput = "Definitions.html";
 
   Input = {
-    File = "data/res/article5254.txt"; // путь к входным файлам
+   // File = "data/res/article5254.txt"; // путь к входным файлам
+    File = "data/res/article3211.txt"; // путь к входным файлам
+   // File = "data/res/article486.txt"; // путь к входным файлам
     //Dir = "data/res"; // путь к входным файлам
   }
 
