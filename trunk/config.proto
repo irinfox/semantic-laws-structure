@@ -3,13 +3,13 @@ encoding "utf8"; // указываем кодировку, в которой н�
 TTextMinerConfig {
   Dictionary = "maindic.gzt"; // путь к корневому словарю
   
-  PrettyOutput = "Definitions.html";
+ // PrettyOutput = "Definitions.html";
 
   Input = {
    // File = "data/res/article5254.txt"; // путь к входным файлам
-    File = "data/res/article3213.txt"; // путь к входным файлам
+    //File = "data/res/article3213.txt"; // путь к входным файлам
    // File = "data/res/article486.txt"; // путь к входным файлам
-    //Dir = "data/res"; // путь к входным файлам
+    Dir = "data/res"; // путь к входным файлам
   }
 
   Articles = [
@@ -27,11 +27,11 @@ TTextMinerConfig {
   ]
   
   Output = {
-	File = "defs.xml";
-	Format = xml;
+	File = "all_defs.txt";
+	Format = text;
         Mode = append;
   }   
 
-  PrintRules = "rules.txt";
-  PrintTree = "tree.txt";
+  //PrintRules = "rules.txt";
+  //PrintTree = "tree.txt";
 }
