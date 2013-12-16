@@ -1,13 +1,10 @@
 encoding "utf8"; // указываем кодировку, в которой написан конфигурационный файл
 
+//пустой конфиг для запуска из STDIN и вывода в STDOUT
 TTextMinerConfig {
   Dictionary = "maindic.gzt"; // путь к корневому словарю
   
-  PrettyOutput = "Test.html";
-
-  Input = {
-    Dir = "test_set"; // путь к папке для тестирования
-  }
+  PrettyOutput = "Test1.html";
 
   Articles = [
     { Name = "правовые_определения" } // название статьи в корневом словаре,
@@ -24,11 +21,7 @@ TTextMinerConfig {
   ]
   
   Output = {
-	File = "test_gold.xml";
-	Format = xml;
-        Mode = append;
+	Format = text;
   }   
 
-  PrintRules = "rules.txt";
-  PrintTree = "tree.txt";
 }
