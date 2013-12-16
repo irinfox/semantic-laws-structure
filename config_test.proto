@@ -22,6 +22,7 @@ TTextMinerConfig {
   
   Output = {
 	Format = text;
+	Mode = append;
   }   
 
 }
