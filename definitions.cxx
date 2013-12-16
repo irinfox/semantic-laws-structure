@@ -139,8 +139,8 @@ Content -> NP_Cont<rt, gnc-agr[1], gram="f"> interp (Content.KeyNP::norm="sg") C
 Content -> NP_Cont<rt, gnc-agr[1]> interp (Content.KeyNP::norm="sg") Comma Comm<gnc-agr[1]> interp (Content.Comment);
 Content -> NP_Cont<rt> interp (Content.KeyNP::norm="sg") (LimBrac interp (Content.Limitation)) Comma Comm_N interp (Content.Comment::not_norm);
 
-//без запятой, не работает
-Content -> Noun interp (Content.KeyWord::norm="sg") InClause interp (Content.Comment);// Cont_stop;
+//без запятой
+Content -> Noun interp (Content.KeyWord::norm="sg") InClause interp (Content.Comment);
 
 //-----------Корневые правила------------------------------------------
 //---------------------------------------------------------------------
