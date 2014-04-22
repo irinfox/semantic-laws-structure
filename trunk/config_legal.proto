@@ -1,0 +1,37 @@
+encoding "utf8"; // указываем кодировку, в которой написан конфигурационный файл
+
+TTextMinerConfig {
+  Dictionary = "maindic.gzt"; // путь к корневому словарю
+  
+// PrettyOutput = "Legal.html";
+
+  Input = {
+    Dir = "data/res//zk"; // путь к входным файлам
+  }
+
+  Articles = [
+    { Name = "правовая_информация" } 
+//    { Name = "правовые_определения" }
+  ]
+  
+  Facts = [
+    { 
+     Name = "LegalInfo";
+    }
+    { 
+     Name = "Definition";
+    }
+    {
+     Name = "Content";
+    }
+  ]
+  
+  Output = {
+//	File = "all_rules.txt";
+	Format = text;
+        Mode = append;
+  }   
+
+  //PrintRules = "rules.txt";
+//  PrintTree = "tree.txt";
+}

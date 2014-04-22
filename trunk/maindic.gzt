@@ -4,10 +4,29 @@ import "base.proto";           // подключаем описания protobuf
 import "articles_base.proto";  // Файлы base.proto и articles_base.proto встроены в компилятор.
                                // Их необходимо включать в начало любого gzt-словаря.
 
+import "kwtypes.proto";
 import "facttypes.proto";
 
-							   
+/*
 TAuxDicArticle "правовые_определения"
 {
     key = { "tomita:definitions.cxx" type=CUSTOM }
+}
+*/
+//TAuxDicArticle "правовые_нормы"
+//{
+//    key = { "tomita:norms.cxx" type=CUSTOM }
+//}
+
+TAuxDicArticle "правовая_информация"
+{
+    key = { "tomita:legal.cxx" type=CUSTOM }
+}
+def_pred "предикаты_определений"
+{
+    key = { "badpred.txt" type=FILE }; 	
+}
+parts_of_law "части_законов"
+{
+    key = { "parts_of_law.txt" type=FILE }
 }

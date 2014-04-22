@@ -25,4 +25,5 @@ TTextMinerConfig {
 	Mode = append;
   }   
 
+  PrintRules = "rules_test.txt";
 }
