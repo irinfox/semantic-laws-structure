@@ -19,8 +19,31 @@ message Content : NFactType.TFact
   optional string Limitation = 3;  // "как природный объект"
   optional string KeyNP = 4; //юр. лицо..
   optional string KeyWord = 5; // землевладельцы - ЛИЦА, ...
-  optional bool Depricated = 6;
+  optional bool Repealed = 6;
   optional bool NotTheOnly = 7; //один из..
   optional string Comment = 8; // ОБЛАДАЮЩИЙ ГРАЖДАНСКОЙ ПРАВОСПОСОБНОСТЬЮ
 }
 
+message LegalRule : NFactType.TFact
+{
+  optional string PlainText = 1;
+  optional string Type = 2; //Obligation, permission, prohibition
+  optional string Hypothesis = 3;
+  optional string Disposition = 4;
+  optional string Sanction = 5;
+  optional string Subject = 6;
+  optional string Limitation = 7;
+}
+
+message LegalInfo : NFactType.TFact
+{
+  optional string PlainText = 1;
+  optional string Subject = 2; //лицо, право, синтаксический субъект
+  optional string Pred = 3; //предикат, в т.ч. сложный
+  optional string Modality = 4; //можно сюда характер попытаться положить
+  optional string Object = 5;
+  optional string Exception = 6;
+  optional string Condition = 7;
+  optional string Penalty = 8;
+  optional string Method = 9; 
+}
