@@ -7,11 +7,17 @@ TTextMinerConfig {
   PrettyOutput = "Test1.html";
 
   Articles = [
-    { Name = "правовые_определения" } // название статьи в корневом словаре,
-                                 // которая содержит запускаемую грамматику
+//    { Name = "правовые_определения" } // название статьи в корневом словаре,
+    { Name = "правовая_информация" } 
   ]
   
   Facts = [
+    { 
+     Name = "LegalInfo";
+    }
+    { 
+     Name = "ConditionClause";
+    }
     { 
      Name = "Definition";
     }

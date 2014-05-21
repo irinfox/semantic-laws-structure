@@ -35,15 +35,38 @@ message LegalRule : NFactType.TFact
   optional string Limitation = 7;
 }
 
+message ConditionClause : NFactType.TFact
+{
+  required string Antecedent = 1;
+  optional string ASubj = 2;
+  optional string APred = 3;
+  optional string AObj = 4;
+  required string Consequent = 5;
+  optional string CSubj = 6;
+  optional string CPred = 7;
+  optional string CObj = 8;
+}
+
 message LegalInfo : NFactType.TFact
 {
   optional string PlainText = 1;
   optional string Subject = 2; //лицо, право, синтаксический субъект
-  optional string Pred = 3; //предикат, в т.ч. сложный
-  optional string Modality = 4; //можно сюда характер попытаться положить
-  optional string Object = 5;
-  optional string Exception = 6;
-  optional string Condition = 7;
-  optional string Penalty = 8;
-  optional string Method = 9; 
+  optional string SubjectKey = 3; //ИГ без ПГ и оборотов
+  optional string Pred = 4; //предикат, в т.ч. сложный
+  optional string Modality = 5; //характер
+  optional string ObjectPlainText = 6;
+  optional string Object1 = 7;
+  optional string Object2 = 8;
+  optional string Object3 = 9;
+  optional bool Inversion = 10; //требуется переставить местами субъект и объект
+  optional string Exception = 11;
+  optional string Condition = 12;
+  optional bool MultCondition = 13;
+  optional string Method = 14; 
+  optional string Marker = 15; // 1. 2)
+  optional string Time = 16;
+  optional string Reference = 17; //ссылка
+  optional string Details = 18; //поле для смешанных типов
+  optional string Penalty = 19;
+  optional bool EnumExpected = 20; //если после норм. правила дб ещё какой-то список
 }
