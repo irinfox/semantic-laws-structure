@@ -19,6 +19,9 @@ TTextMinerConfig {
      Name = "LegalInfo";
     }
     { 
+     Name = "ConditionClause";
+    }
+    { 
      Name = "Definition";
     }
     {
@@ -32,6 +35,6 @@ TTextMinerConfig {
         Mode = append;
   }   
 
-  //PrintRules = "rules.txt";
+  PrintRules = "rules.txt";
 //  PrintTree = "tree.txt";
 }

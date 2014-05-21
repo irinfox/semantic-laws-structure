@@ -12,12 +12,16 @@ TAuxDicArticle "правовые_определения"
 {
     key = { "tomita:definitions.cxx" type=CUSTOM }
 }
-*/
 //TAuxDicArticle "правовые_нормы"
 //{
 //    key = { "tomita:norms.cxx" type=CUSTOM }
 //}
 
+TAuxDicArticle "характер"
+{
+    key = { "tomita:modality.cxx" type=CUSTOM }
+}
+*/
 TAuxDicArticle "правовая_информация"
 {
     key = { "tomita:legal.cxx" type=CUSTOM }
@@ -26,7 +30,19 @@ def_pred "предикаты_определений"
 {
     key = { "badpred.txt" type=FILE }; 	
 }
+bad_np_start "плохие_иг"
+{
+    key = { "badnpstart.txt" type=FILE }; 	
+}
 parts_of_law "части_законов"
 {
     key = { "parts_of_law.txt" type=FILE }
+}
+law_names "нпа" //нормативно-правовые акты
+{
+    key = { "law_names.txt" type=FILE }
+}
+time "временные_промежутки"
+{
+    key = { "time_words.txt" type=FILE }
 }

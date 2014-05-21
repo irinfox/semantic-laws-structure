@@ -45,7 +45,7 @@ my %codedir = (
    'Уголовный кодекс Российской Федерации' => 'uk'
 );
 
-my $codes = 'кодекс ([а-я ]+?)?(РФ|Российской Федерации)( об [а-я ]+?)?(\/Редакция \d{2}\.\d{2}\.\d{4})?\/(Глава|Раздел|(,часть)) ';
+my $codes = 'кодекс ([а-я ]+?)?(РФ|Российской Федерации)( об [а-я ]+?)?(\/Редакция \d{1,2}\.\d{1,2}\.\d{4})?\/(Глава|Раздел|(,часть)) ';
 
 my $kate = '(ГОСТ|Указ Президента РФ|Федеральный закон)';
 
@@ -61,6 +61,11 @@ for my $subdir (values %codedir){
   }
   mkdir $dir."/".$subdir;
 }
+
+if ( -d "apk_old"){
+ rmtree("apk_old");
+}
+mkdir "apk_old";
 
 #parse to extract articles
 my $parser = XML::Parser->new(Handlers=>{Start => \&tag_start, Char => \&tag_text,  End => \&tag_end});
@@ -182,7 +187,12 @@ sub parse_text {
 
         $i++;
         if (exists $codedir{$code}){      
-           $f = $dir.'/'.$codedir{$code}.'/article'.$i.".txt"; 
+           if ($codedir{$code} eq "apk" && $red !~ /2010/) {
+	         $f = 'apk_old/article'.$i.".txt";
+              }
+           else {
+	     $f = $dir.'/'.$codedir{$code}.'/article'.$i.".txt";
+           }      
         } else {$f = $dir.'/article'.$i.".txt";}
 
         open (FILE,">$f") or die "cannot create $!"; 
