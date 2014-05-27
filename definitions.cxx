@@ -36,7 +36,7 @@ PenalTerm -> NP_Def interp (Definition.Term; Content.KeyNP; Content.KeyWord) Def
 
 DefPred -> 'являться' | 'признаваться';
 DefPred_pr -> 'пониматься' | 'относиться'; //для предиката с предлогом
-DefPredInt -> DefPred interp (Definition.Pred) | DefPred_pr interp (Definition.Pred) | Hyphen;
+DefPredInt -> DefPred interp (Definition.Pred) | Hyphen;
 
 FullTerm -> Term interp (Definition.Term) (Limits interp (Definition.Limitation)) DefPredInt;  
 
@@ -103,7 +103,7 @@ LimBracCut -> LBracket<cut> InBrac RBracket<cut> {weight=1.5};
 
 InClause -> BigNP;
 Comm -> PartcpPhrase+ (Comma) (NP);
-Comm -> PartcpPhrase Btw PartcpPhrase;
+Comm -> PartcpPhrase<gnc-agr[1]> Btw PartcpPhrase<gnc-agr[1]>;
 Comm -> (Noun) Subordinate;
 Comm -> Comm LimBrac PPS;
 Comm -> Comm Comma EnumNP;
