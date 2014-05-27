@@ -11,9 +11,10 @@ PRO -> Word<gram="SPRO", kwtype=~[bad_np_start]>; // | Word<gram="APRO">;
 NPinBr -> LBracket EnumNP RBracket;
 NP -> Noun | PRO ;
 NP -> NP<rt> Noun<gram=~"nom">+;
+NP -> NP<rt> PRO<gram=~"nom">+;
 NP -> NP<rt> Noun<gram="gen">+ {weight=1.4};
-NP -> NP<rt> Noun<gram="gen"> Comma Noun<gram="gen"> {weight=1.4};
-NP -> NP<rt> Noun<gram="gen"> Conj Noun<gram="gen"> {weight=1.4};
+NP -> NP<rt> (Adj<gram="gen">) Noun<gram="gen"> Comma Noun<gram="gen"> {weight=1.4};
+NP -> NP<rt> (Adj<gram="gen">) Noun<gram="gen"> Conj Noun<gram="gen"> {weight=1.4};
 NP -> Word<gram="NUM">+ NP<rt>;
 NP -> NP ANP;
 NP -> NP PPS;
@@ -28,6 +29,7 @@ NP -> Word<gram="NUM"> 'до' NP;
 
 PP -> Prep NP<rt>;
 PP -> Prep ReferInt;
+PP -> ReferInt1;
 PPS -> PP+;
 
 EnumNP -> NP | PPS;
@@ -40,9 +42,10 @@ Partcp -> (Adv) (Neg) Word<gram="partcp",rt>;
 Partcp -> Partcp<gnc-agr[1]> Conj Partcp<gnc-agr[1]>;
 PartcpPhrase -> Partcp (Reference+) (NP) EnumNP; 
 PartcpPhrase -> Partcp ReferInt; 
+PartcpPhrase -> Partcp Prep ReferInt; 
 PartcpPhrase -> PartcpPhrase Conj PartcpPhrase;
-//PartcpPhrase -> Partcp PPS; 
-PartcpPhraseC -> Comma PartcpPhrase (Comma);
+PartcpPhrase -> Partcp PPS; 
+PartcpPhraseC -> Comma PartcpPhrase (SubStop);
 
 NP -> NP<c-agr[1]> Conj NP<c-agr[1]>;
 BigNP -> NP;

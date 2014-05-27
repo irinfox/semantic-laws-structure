@@ -32,4 +32,5 @@ TTextMinerConfig {
   }   
 
   PrintRules = "rules_test.txt";
+  PrintTree = "tree_test.txt";
 }

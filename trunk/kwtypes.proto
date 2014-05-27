@@ -1,0 +1,8 @@
+import "base.proto";           // подключаем описания protobuf-типов (TAuxDicArticle и прочих)
+import "articles_base.proto";  // Файлы base.proto и articles_base.proto встроены в компилятор.
+
+message def_pred: TAuxDicArticle { };
+message bad_np_start: TAuxDicArticle { };
+message parts_of_law : TAuxDicArticle {}
+message law_names : TAuxDicArticle {}
+message time : TAuxDicArticle {}
