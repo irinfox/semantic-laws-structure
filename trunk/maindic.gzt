@@ -6,7 +6,6 @@ import "articles_base.proto";  // Файлы base.proto и articles_base.proto �
 
 import "kwtypes.proto";
 import "facttypes.proto";
-
 /*
 TAuxDicArticle "правовые_определения"
 {

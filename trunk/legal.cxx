@@ -9,7 +9,7 @@ Permission -> 'иметь' 'право';
 Obligation -> 'должный'<gram="brev"> | 'обязанный'<gram="brev"> | 'обязанность' | 'обязывать'; //срок исполнения ... обязанности ... какой
 
 Neg -> 'не';
-Prohibition -> 'запрещать' | 'не' 'допускать';
+Prohibition -> 'запрещать' | 'не' 'допускать' | 'не' 'должный'<gram="brev">;
 Prohibition -> Neg Permission;
 
 Modality -> Permission interp (LegalInfo.Modality="Permission") | Obligation interp (LegalInfo.Modality="Obligation") | Prohibition interp (LegalInfo.Modality="Prohibition");
@@ -168,6 +168,7 @@ Extra -> CondInt | ExcInt | MethodInt | TimeInt | ReferInt | DetInt;
 
 Subj -> AgentS interp (LegalInfo.Subject);
 Subj -> Subj Comma Subj;
+Subj -> Subj Conj Subj;
 Obj -> AgentO interp (LegalInfo.ObjectPlainText::not_norm);
 ComplexObj -> Obj Extra;
 ComplexObj -> ComplexObj Comma ComplexObj;
@@ -188,8 +189,8 @@ S -> (CondInt) Subj Modality Obj PredInt (Extra);
 S -> CondInt PredInt<sp-agr[1]> Subj<sp-agr[1]> (Extra); 
 S -> TimeInt Subj<sp-agr[1]> PredInt<sp-agr[1]> Obj (Extra); 
 S -> TimeInt Subj Modality MethodInt PredInt  Obj; // Extra; 
-S -> Subj Modality CondInt PredInt (Obj);
-S -> Obj interp (LegalInfo.Object1::not_norm) Subj<sp-agr[1]> PredInt<sp-agr[1]> interp (LegalInfo.Inversion="false") Obj interp (LegalInfo.Object2::not_norm;+LegalInfo.ObjectPlainText::not_norm);
+S -> Subj Modality Extra PredInt (Obj);
+S -> Obj<gram="~nom"> interp (LegalInfo.Object1::not_norm) Subj<sp-agr[1]> PredInt<sp-agr[1]> interp (LegalInfo.Inversion="false") Obj interp (LegalInfo.Object2::not_norm;+LegalInfo.ObjectPlainText::not_norm);
 //S -> (CondInt) (Modality) Pred interp (LegalInfo.Pred::not_norm) Subj (Extra); //вообще это MethodInt?
 //S -> Obj 'у' Subj (Modality) Pred interp (LegalInfo.Pred::not_norm) (Extra) {weight=1.3};
 //S -> (CondInt) (Modality) PassPred interp (LegalInfo.Pred::not_norm) Subj {weight=1.2};
@@ -210,7 +211,7 @@ CCMarkerStart -> 'если';
 CCMarkerStop -> 'то';
 
 Antecedent -> PP interp (ConditionClause.AObj) UniPred interp (ConditionClause.APred) NP interp (ConditionClause.ASubj);
-Antecedent -> AgentS interp (ConditionClause.ASubj) Pred interp (ConditionClause.APred) AgentO interp (ConditionClause.AObj);
+Antecedent -> BigNP interp (ConditionClause.ASubj) Pred interp (ConditionClause.APred) AgentO interp (ConditionClause.AObj);
 Consequent -> NP<rt> interp (ConditionClause.CSubj) UniPred interp (ConditionClause.CPred) BigNP;
 
 S -> CCMarkerStart Antecedent interp (ConditionClause.Antecedent) Comma CCMarkerStop Consequent interp (ConditionClause.Consequent) {weight=1.5}; 

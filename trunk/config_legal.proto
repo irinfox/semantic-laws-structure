@@ -6,7 +6,7 @@ TTextMinerConfig {
 // PrettyOutput = "Legal.html";
 
   Input = {
-    Dir = "data/res//zk"; // путь к входным файлам
+    Dir = "evaldir/data//zk"; // путь к входным файлам
   }
 
   Articles = [
@@ -21,12 +21,12 @@ TTextMinerConfig {
     { 
      Name = "ConditionClause";
     }
-    { 
-     Name = "Definition";
-    }
-    {
-     Name = "Content";
-    }
+//    { 
+//     Name = "Definition";
+//    }
+//    {
+//     Name = "Content";
+//    }
   ]
   
   Output = {
@@ -36,5 +36,5 @@ TTextMinerConfig {
   }   
 
   PrintRules = "rules.txt";
-//  PrintTree = "tree.txt";
+  PrintTree = "tree.txt";
 }

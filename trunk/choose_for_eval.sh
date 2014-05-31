@@ -11,6 +11,7 @@ if [ -z "$1" ] || [ -z "$2" ]
         D=$(basename $d)
         echo $D 
         mkdir -p $2/$D
+        rm -f $2/$D/*
         echo "$2/$D" 
         if [[ $D =~ ^(gk|sk|zk|nk|tk)$ ]]
           then 
