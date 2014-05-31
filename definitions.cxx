@@ -2,7 +2,7 @@
 #GRAMMAR_ROOT S
 #include "np.cxx"
 
-Break -> EOSent | AnyWord<wff=";">;
+Break -> EOSent | AnyWord<wff=";"> | Punct;
 
 LimitDef -> LBracket EnumNP+ RBracket; //река-море (статья 2440?) 
 
@@ -17,7 +17,7 @@ LimitPart -> Comma LimPart interp (Definition.Comment::not_norm) Comma;
 //---------------------Правила для терминов----------------------------
 //---------------------------------------------------------------------
 
-NP_Def -> Noun<gram="nom"> interp (Definition.KeyWord); 
+NP_Def -> Noun<gram="nom",kwtype=~[bad_np_start]> interp (Definition.KeyWord); 
 NP_Def -> NP_Def NP+;
 ANP_Def -> Adj<gnc-agr[1]>+ NP_Def<gnc-agr[1], rt>; 
 ANPDef -> Adj<gnc-agr[1]>+ LimitDef interp (Definition.Limitation) NP_Def<gnc-agr[1]>;
@@ -40,8 +40,8 @@ DefPredInt -> DefPred interp (Definition.Pred) | Hyphen;
 
 FullTerm -> Term interp (Definition.Term) (Limits interp (Definition.Limitation)) DefPredInt;  
 
-T_not_nom -> Noun interp (Definition.KeyWord);
-T_not_nom -> T_not_nom NP;
+T_not_nom -> Noun<rt,kwtype=~[bad_np_start]> interp (Definition.KeyWord); //не однословные
+T_not_nom -> T_not_nom<rt> NP;
 T_not_nom -> Adj<gnc-agr[1]> T_not_nom<rt,gnc-agr[1]>;
 Pr -> 'под' | 'к'; 
 FullTerm -> Pr T_not_nom interp (Definition.Term) (Limits interp (Definition.Limitation::not_norm)) DefPred_pr interp (Definition.Pred);  
@@ -52,7 +52,7 @@ FullTerm -> T_not_nom<gram="ins"> interp (Definition.Term) (Limits interp (Defin
 
 NotOne -> 'один'<rt> 'из';
 NP_Cont -> NotOne interp (Content.NotTheOnly="True") (Adj) Noun<rt> interp (Content.KeyWord);
-NP_Cont -> Noun<rt, gram="nom"> interp (Content.KeyWord);
+NP_Cont -> Noun<rt, gram="nom", kwtype=~[bad_np_start]> interp (Content.KeyWord);
 NP_Cont -> NP_Cont NP+;
 NP_Cont -> NP_Cont ANP_Cont;
 NP_Cont -> ANP_Cont;
@@ -143,7 +143,7 @@ S -> FullTerm<fw> interp (Definition.PlainText) Enum;
 S -> Enum<fw> FullTermInv interp (Definition.PlainText);
 
 //---------------для типа без перечисления--------
-S -> FullTerm<fw> interp (Definition.PlainText) Content interp (Content.PlainText);
+S -> FullTerm interp (Definition.PlainText) Content interp (Content.PlainText);
 S -> Term2<fw> interp (Definition.PlainText) Comma Comm+ interp (Content.PlainText; Content.Comment); //Cont_stop;
 
 //--------------для УК----------------------------

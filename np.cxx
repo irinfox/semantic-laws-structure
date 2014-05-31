@@ -9,7 +9,7 @@ Conj -> 'и' | 'или' | 'либо' | ComplexOr;
 PRO -> Word<gram="SPRO", kwtype=~[bad_np_start]>; // | Word<gram="APRO">;
 
 NPinBr -> LBracket EnumNP RBracket;
-NP -> Noun | PRO ;
+NP -> Noun<gram="~PR"> | PRO ;
 NP -> NP<rt> Noun<gram=~"nom">+;
 NP -> NP<rt> PRO<gram=~"nom">+;
 NP -> NP<rt> Noun<gram="gen">+ {weight=1.4};
