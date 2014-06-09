@@ -6,7 +6,6 @@ import "articles_base.proto";  // Файлы base.proto и articles_base.proto �
 
 import "kwtypes.proto";
 import "facttypes.proto";
-/*
 TAuxDicArticle "правовые_определения"
 {
     key = { "tomita:definitions.cxx" type=CUSTOM }
@@ -15,16 +14,16 @@ TAuxDicArticle "правовые_определения"
 //{
 //    key = { "tomita:norms.cxx" type=CUSTOM }
 //}
-
+/*
 TAuxDicArticle "характер"
 {
     key = { "tomita:modality.cxx" type=CUSTOM }
 }
-*/
 TAuxDicArticle "правовая_информация"
 {
     key = { "tomita:legal.cxx" type=CUSTOM }
 }
+*/
 def_pred "предикаты_определений"
 {
     key = { "badpred.txt" type=FILE }; 	

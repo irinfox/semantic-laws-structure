@@ -10,23 +10,23 @@ TTextMinerConfig {
   }
 
   Articles = [
-    { Name = "правовая_информация" } 
-//    { Name = "правовые_определения" }
+//  { Name = "правовая_информация" } 
+    { Name = "правовые_определения" }
   ]
   
   Facts = [
-    { 
-     Name = "LegalInfo";
-    }
-    { 
-     Name = "ConditionClause";
-    }
 //    { 
-//     Name = "Definition";
+//     Name = "LegalInfo";
 //    }
-//    {
-//     Name = "Content";
+//    { 
+//     Name = "ConditionClause";
 //    }
+    { 
+     Name = "Definition";
+    }
+    {
+     Name = "Content";
+    }
   ]
   
   Output = {
